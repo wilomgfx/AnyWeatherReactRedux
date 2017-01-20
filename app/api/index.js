@@ -1,0 +1,19 @@
+import axios from 'axios';
+
+export default class Api {
+  apiKey : '09927f06df6081c2cedb74a84fe314a1'
+  apiBaseUrl : 'https://api.darksky.net/forecast/'
+
+  constructApiUrl(lat, long) {
+    return `${this.apiBaseUrl}/${this.apiKey}/${lat},${long}`;
+  }
+
+  getFromMyLocation() {
+    return this.constructApiUrl(45.561050,-73.474612);
+  }
+
+  getCurrentWeather(lat, long) {
+    return axios.get(this.constructApiUrl(lat,long));
+  }
+
+}

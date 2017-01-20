@@ -2,7 +2,7 @@ import types  from '../actions/index'
 
 const initialState = {
   isFetching: false,
-  items: []
+  weather: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        items: action.items,
+        weather: action.weather,
         error: null
       }
     }
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        items: [],
+        weather: {},
         error: action.error
       }
     }

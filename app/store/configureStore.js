@@ -10,10 +10,7 @@ export default (initialState) => {
   const store = createStore(
     reducer,
     initialState,
-    applyMiddleware(...middleware),
-    // autoRehydrate()
+    applyMiddleware(...middleware)
   )
-  // https://github.com/rt2zz/redux-persist
-  // persistStore(store)
   return store
 }
