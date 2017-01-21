@@ -1,26 +1,24 @@
 import Api from '../api/index';
 
-const api = new Api();
-
-const weatherActionTypes = {
+export const weatherActionTypes = {
   FETCH_CURRENT_WEATHER_PENDING: 'FETCH_CURRENT_WEATHER_PENDING',
   FETCH_CURRENT_WEATHER_SUCCESS: 'FETCH_CURRENT_WEATHER_SUCCESS',
   FETCH_CURRENT_WEATHER_FAILURE: 'FETCH_CURRENT_WEATHER_FAILURE'
 }
 
-export const actionCreators = {
+const actionCreators = {
   getCurrentWeather: () => (dispatch) => {
     dispatch({type : weatherActionTypes.FETCH_CURRENT_WEATHER_PENDING});
-    this.api.getFromMyLocation()
-      .then((response) =>{
-      dispatch(this.fetchWeatherSuccess(response))
+    new Api().getFromMyLocation()
+      .then(({data}) =>{
+      return dispatch(actionCreators.fetchWeatherSuccess(data))
     })
       .catch((error) => {
-        dispatch(this.fetchWeatherFailure(error))
+        return dispatch(actionCreators.fetchWeatherFailure(error))
       })
   },
-  fetchWeatherSuccess: (weather) => {
-    return {type: weatherActionTypes.FETCH_CURRENT_WEATHER_SUCCESS, weather: weather}
+  fetchWeatherSuccess: (stats) => {
+    return {type: weatherActionTypes.FETCH_CURRENT_WEATHER_SUCCESS, stats: stats}
   },
   fetchWeatherFailure: (error) => {
     return {type: weatherActionTypes.FETCH_CURRENT_WEATHER_FAILURE, error: error}
@@ -28,4 +26,4 @@ export const actionCreators = {
 }
 
 
-export default weatherActionTypes;
+export default actionCreators;

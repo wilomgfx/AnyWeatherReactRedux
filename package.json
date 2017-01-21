@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
-		"gradlewClean" : "cd android && ./gradlew clean && cd .."
+		"gradlew": "cd android && ./gradlew clean"
 	},
 	"dependencies": {
 		"axios": "infinitered/axios#windows_friendly",
@@ -16,6 +16,7 @@
 		"react-native-vector-icons": "^4.0.0",
 		"react-redux": "^5.0.2",
 		"redux": "^3.6.0",
+		"redux-devtools-extension": "^1.0.0",
 		"redux-thunk": "^2.2.0"
 	},
 	"devDependencies": {

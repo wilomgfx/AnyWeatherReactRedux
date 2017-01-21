@@ -1,13 +1,12 @@
-import types  from '../actions/index'
+import { weatherActionTypes as types }   from '../actions/index'
 
 const initialState = {
   isFetching: false,
-  weather: {}
+  stats :  {}
 }
 
-const reducer = (state = initialState, action) => {
+const currentWeatherReducer = (state = initialState, action) => {
   const {type, payload} = action
-
   switch(type) {
     case types.FETCH_CURRENT_WEATHER_PENDING: {
       return {
@@ -20,7 +19,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        weather: action.weather,
+        stats : action.stats,
         error: null
       }
     }
@@ -28,7 +27,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        weather: {},
+        stats: {},
         error: action.error
       }
     }
@@ -37,4 +36,4 @@ const reducer = (state = initialState, action) => {
     }
   }
 }
-export default reducer;
+export default currentWeatherReducer;

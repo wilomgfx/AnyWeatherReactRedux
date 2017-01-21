@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class AppRouter extends Component {
+class ViewContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -26,7 +26,7 @@ class AppRouter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Main/>
+        <Main {...this.props} />
       </View>
     );
   }
@@ -41,4 +41,4 @@ function mapDisPatchToProps(dispatch){
   return bindActionCreators(actionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDisPatchToProps)(AppRouter)
+export default connect(mapStateToProps, mapDisPatchToProps)(ViewContainer)
