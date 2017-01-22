@@ -23,6 +23,7 @@ class ViewContainer extends Component {
     super(props);
   }
 
+
   render() {
     return (
       <View style={styles.container}>
