@@ -54,3 +54,6 @@ fastlane/screenshots
 
 #React-native
 .tmp/
+
+#vscode
+.vscode/
