@@ -3,13 +3,15 @@ import React, {Component, PropTypes} from 'react'
 import {View, StyleSheet, Text} from 'react-native'
 
 import moment from 'moment';
+import _ from 'lodash';
 
 import getWeatherIconByIconName from '../utils/icons';
 
 const styles = StyleSheet.create({
   content: {
     backgroundColor: 'white',
-    flex:1
+    flex:1,
+    marginTop:20
   },
   text: {
     fontSize:20,
@@ -57,9 +59,11 @@ export default class CurrentWeather extends Component {
   }
 
   render() {
+      const currently = this.props.currently;
       return (
         <View style={styles.content}>
-          {this.outPutWeatherData()}
+          {!_.isEmpty(currently) && this.outPutWeatherData()}
+          {_.isEmpty(currently) && <Text style={{marginTop:50, textAlign:'center', fontSize: 40}}>Loading...</Text>}
         </View>
       );
   }

@@ -35,7 +35,8 @@ class ViewContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    weather : state.weather
+    weather : state.weather,
+    localisation : state.localisation
   }
 }
 function mapDisPatchToProps(dispatch){

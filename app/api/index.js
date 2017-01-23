@@ -13,8 +13,8 @@ export default class Api {
     return axios.get(this.constructApiUrl(45.561050,-73.474612));
   }
 
-  getCurrentWeather(lat, long) {
-    return axios.get(this.constructApiUrl(lat,long));
+  getCurrentWeather({latitude, longitude}) {
+    return axios.get(this.constructApiUrl(latitude,longitude));
   }
 
 }
