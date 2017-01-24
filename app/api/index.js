@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class Api {
   constructor(){
-    this.apiKey = '09927f06df6081c2cedb74a84fe314a1'
+    this.apiKey = config.apiKey;
     this.apiBaseUrl = 'https://api.darksky.net/forecast'
   }
   constructApiUrl(lat, long) {
